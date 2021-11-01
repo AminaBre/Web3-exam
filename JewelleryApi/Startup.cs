@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
+using JewelleryApi.Models;
+using JewelleryApi.Services;
 
 namespace JewelleryApi
 {
@@ -32,7 +35,29 @@ namespace JewelleryApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JewelleryApi", Version = "v1" });
             });
+
+            services.Configure<JewelleryDatabaseSettings>(
+                Configuration.GetSection(nameof(JewelleryDatabaseSettings))
+            );
+
+            services.AddSingleton<IJewelleryDatabaseSettings>(
+                sp => sp.GetRequiredService<IOptions<JewelleryDatabaseSettings>>().Value
+            );
+
+            services.AddSingleton<JewelleryService>();
+
+            services.AddCors(
+                options => {
+                    options.AddPolicy("AllowAny", 
+                        builder => builder
+                            .AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                    );
+                }
+            );
         }
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,6 +68,15 @@ namespace JewelleryApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JewelleryApi v1"));
             }
+
+            DefaultFilesOptions newOptions = new DefaultFilesOptions();
+            newOptions.DefaultFileNames.Append("index.html");
+            app.UseDefaultFiles();
+
+
+            app.UseStaticFiles(); //Lar oss se bilder
+
+            app.UseCors("AllowAny");
 
             app.UseHttpsRedirection();
 
