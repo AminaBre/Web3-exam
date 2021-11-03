@@ -1,4 +1,4 @@
-namespace JewelleryApi.Models
+namespace JewelleryApi.DatabaseSettings
 {
     public interface IJewelleryDatabaseSettings
     {

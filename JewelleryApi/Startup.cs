@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Options;
 using JewelleryApi.Models;
 using JewelleryApi.Services;
+using JewelleryApi.DatabaseSettings;
 
 namespace JewelleryApi
 {
@@ -44,11 +45,12 @@ namespace JewelleryApi
                 sp => sp.GetRequiredService<IOptions<JewelleryDatabaseSettings>>().Value
             );
 
-            services.AddSingleton<JewelleryService>();
+            services.AddSingleton<BraceletService>();
 
             services.AddCors(
-                options => {
-                    options.AddPolicy("AllowAny", 
+                options =>
+                {
+                    options.AddPolicy("AllowAny",
                         builder => builder
                             .AllowAnyOrigin()
                             .AllowAnyHeader()
@@ -57,7 +59,6 @@ namespace JewelleryApi
                 }
             );
         }
-        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,10 +72,8 @@ namespace JewelleryApi
 
             DefaultFilesOptions newOptions = new DefaultFilesOptions();
             newOptions.DefaultFileNames.Append("index.html");
+
             app.UseDefaultFiles();
-
-
-            app.UseStaticFiles(); //Lar oss se bilder
 
             app.UseCors("AllowAny");
 
