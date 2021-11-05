@@ -1,7 +1,7 @@
 export interface IBracelet {
   //Kontrakt
   id: string;
-  image: string;
+  image?: string;
   name: string;
   material: string;
   brand: string;

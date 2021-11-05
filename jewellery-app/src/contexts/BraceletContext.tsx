@@ -25,7 +25,7 @@ export const BraceletProvider: FC = ({ children }) => {
     getBracelets();
 
     let newBracelet = { name: "New Bracelet", image: "cute-mummy.png" };
-    axios.post("https://localhost:5001/bracelet", newBracelet);
+    axios.post("https://localhost:5001/bracelet" /*, newBracelet*/);
   }, []);
 
   const getBracelets = async () => {

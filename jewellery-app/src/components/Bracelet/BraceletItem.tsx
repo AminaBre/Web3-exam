@@ -9,13 +9,16 @@ const BraceletItem: FC<IBracelet> = ({
   brand,
   price,
 }) => {
-  console.log({ name });
-
   return (
     <article>
+      <img
+        className="img-fluid"
+        src={`https://localhost:5001/images/${image}`}
+        width="300"
+        height="300"
+      />
       <h3>{name}</h3>
       <h4>{material}</h4>
-      <img src={`https://localhost:5001/images/${image}`} />
       <h4>{brand}</h4>
       <h4>{price}</h4>
     </article>

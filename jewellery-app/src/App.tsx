@@ -1,16 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FC } from "react";
-import { BraceletProvider } from "./contexts/BraceletContext";
-import BraceletList from "./components/Bracelet/BraceletList";
+import Routing from "./routing.js/Routing";
 
 const App: FC = () => {
   return (
     <div>
-      <h1>Bracelet-oversikt</h1>
-      <BraceletProvider>
-        <BraceletList></BraceletList>
-      </BraceletProvider>
+      <Routing />
     </div>
   );
 };
