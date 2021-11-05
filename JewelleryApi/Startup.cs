@@ -72,8 +72,9 @@ namespace JewelleryApi
 
             DefaultFilesOptions newOptions = new DefaultFilesOptions();
             newOptions.DefaultFileNames.Append("index.html");
+            app.UseDefaultFiles(newOptions);
 
-            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseCors("AllowAny");
 
