@@ -3,7 +3,6 @@ import { IBracelet } from "../../interfaces/IBracelet";
 import BraceletItem from "./BraceletItem";
 import { BraceletContext } from "../../contexts/BraceletContext";
 import { BraceletContextType } from "../../types/BraceletContextType";
-import CreateBracelet from "./CreateBracelet";
 import { Container, Row, Col } from "react-bootstrap";
 
 const BraceletList: FC = () => {
@@ -31,7 +30,6 @@ const BraceletList: FC = () => {
     <>
       <Row>
         <section>
-          <h3>Bracelet-liste</h3>
           <p>Antall armbånd: {bracelets.length}</p>
         </section>
       </Row>

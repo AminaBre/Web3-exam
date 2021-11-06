@@ -14,6 +14,7 @@ const MainNavigation: FC = () => {
             className="d-inline-block align-top"
             alt="Jewellery-logo"
           />
+          Jewellery
         </Navbar.Brand>
         <Nav>
           <Nav.Link as={Link} to="/">

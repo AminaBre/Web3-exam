@@ -5,7 +5,7 @@ import BraceletList from "../components/Bracelet/BraceletList";
 const Bracelets: FC = () => {
   return (
     <section>
-      <h1>Bracelet-oversikt</h1>
+      <h2>Armbånd</h2>
       <BraceletProvider>
         <BraceletList />
       </BraceletProvider>
