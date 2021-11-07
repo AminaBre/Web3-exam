@@ -23,9 +23,9 @@ namespace JewelleryApi.Controllers
         }
 
         [HttpPost]
-        public Bracelet PostBracelet(Bracelet newBracelet) //Denne metoden tar i mot JSON
+        public Bracelet Post(Bracelet newBracelet) //Denne metoden tar i mot JSON
         {
-            _braceletService.PostBracelet(newBracelet);
+            _braceletService.Create(newBracelet);
             return newBracelet;
         }
     }

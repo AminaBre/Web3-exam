@@ -15,14 +15,14 @@ namespace JewelleryApi.Services
             //Koplingen til MongoDbAtlas
             var client = new MongoClient( settings.ConnectionString );
             var database = client.GetDatabase( settings.DatabaseName );
-            _bracelets = database.GetCollection<Bracelet>( settings.JewelleryCollectionName );
+            _bracelets = database.GetCollection<Bracelet>( settings.BraceletCollectionName );
         }
 
         public List<Bracelet> GetBracelets(){
             return _bracelets.Find(bracelet => true).ToList();
         }
 
-        public Bracelet PostBracelet(Bracelet newBracelet)
+        public Bracelet Create(Bracelet newBracelet)
         {
             //Kan  bruke  try/catch her
             _bracelets.InsertOne(newBracelet);

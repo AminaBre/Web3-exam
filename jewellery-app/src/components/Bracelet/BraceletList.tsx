@@ -2,10 +2,8 @@ import { FC, useContext, useEffect, useState } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import BraceletItem from "./BraceletItem";
 import { BraceletService } from "../../services/BraceletService";
-import { BraceletContext } from "../../contexts/BraceletContext";
-import { BraceletContextType } from "../../types/BraceletContextType";
 import CreateBraceletForm from "./CreateBraceletForm";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const BraceletList: FC = () => {
   const [bracelets, setBracelets] = useState<IBracelet[]>();

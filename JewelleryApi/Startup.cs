@@ -46,6 +46,8 @@ namespace JewelleryApi
             );
 
             services.AddSingleton<BraceletService>();
+            services.AddSingleton<NecklaceService>();
+            services.AddSingleton<RingService>();
 
             services.AddCors(
                 options =>
