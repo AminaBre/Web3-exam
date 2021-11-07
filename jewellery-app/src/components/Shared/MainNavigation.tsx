@@ -23,7 +23,7 @@ const MainNavigation: FC = () => {
           <Nav.Link as={Link} to="/bracelets">
             Armbånd
           </Nav.Link>
-          <Nav.Link as={Link} to="">
+          <Nav.Link as={Link} to="/necklaces">
             Kjeder
           </Nav.Link>
           <Nav.Link as={Link} to="">
