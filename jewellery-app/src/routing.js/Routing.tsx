@@ -4,6 +4,7 @@ import { Home, Rings, Necklaces, Bracelets, Error } from "../pages";
 import MainNavigation from "../components/Shared/MainNavigation";
 import { Container } from "react-bootstrap";
 
+//Hadde allerede startet på eksamen  før  endringene om switch, element osv ble tatt i bruk.
 const Routing: FC = () => {
   return (
     <BrowserRouter>

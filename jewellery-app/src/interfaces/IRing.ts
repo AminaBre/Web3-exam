@@ -1,6 +1,6 @@
 export interface IRing {
   //Kontrakt
-  id: string;
+  id?: string;
   image?: string;
   name: string;
   material: string;

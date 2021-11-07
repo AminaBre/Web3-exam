@@ -14,6 +14,7 @@ const NecklaceItem: FC<INecklace> = ({
       <img
         className="img-fluid"
         src={`https://localhost:5001/images/${image}`}
+        alt={name}
         width="300"
         height="300"
       />
