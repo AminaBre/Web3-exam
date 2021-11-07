@@ -22,7 +22,7 @@ const BraceletItem: FC<IBracelet> = ({
       <h4>{material}</h4>
       <h4>{brand}</h4>
       <h4>{price}</h4>
-      <input type="button">Edit</input>
+      <input type="button" value="Edit"></input>
     </article>
   );
 };
