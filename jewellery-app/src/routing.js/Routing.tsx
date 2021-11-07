@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { FC } from "react";
-import { Home, Necklaces, Bracelets, Error } from "../pages";
+import { Home, Rings, Necklaces, Bracelets, Error } from "../pages";
 import MainNavigation from "../components/Shared/MainNavigation";
 import { Container } from "react-bootstrap";
 
@@ -19,6 +19,7 @@ const Routing: FC = () => {
             path={["/necklaces", "/kjeder", "/halssmykke"]}
             component={Necklaces}
           />
+          <Route path={["/rings", "/ringer"]} component={Rings} />
           <Route path="*" component={Error} />
         </Switch>
       </Container>

@@ -12,11 +12,11 @@ export const BraceletContext = createContext<BraceletContextType | null>(null);
 export const BraceletProvider: FC = ({ children }) => {
   const [bracelets, setBracelets] = useState<IBracelet[]>([
     {
-      id: "Mockup-id",
-      material: "Mockup-material",
-      image: "cute-witch.png",
-      name: "Mockup-name",
-      brand: "Mockup-brand",
+      id: "",
+      material: "",
+      image: "",
+      name: "",
+      brand: "",
       price: 1,
     },
   ]);

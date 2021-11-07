@@ -12,11 +12,11 @@ export const NecklaceContext = createContext<NecklaceContextType | null>(null);
 export const NecklaceProvider: FC = ({ children }) => {
   const [necklaces, setNecklaces] = useState<INecklace[]>([
     {
-      id: "Mockup-id",
-      material: "Mockup-material",
-      image: "cute-witch.png",
-      name: "Mockup-name",
-      brand: "Mockup-brand",
+      id: "",
+      material: "",
+      image: "",
+      name: "",
+      brand: "",
       price: 1,
     },
   ]);
