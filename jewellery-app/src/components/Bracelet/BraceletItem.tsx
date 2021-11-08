@@ -1,5 +1,10 @@
 import { FC } from "react";
+import { BraceletService } from "../../services/BraceletService";
 import { IBracelet } from "../../interfaces/IBracelet";
+
+const deleteBracelet = () => {
+  console.log("Deleted");
+};
 
 const BraceletItem: FC<IBracelet> = ({
   id,
@@ -23,6 +28,7 @@ const BraceletItem: FC<IBracelet> = ({
       <h4>{brand}</h4>
       <h4>{price}</h4>
       <input type="button" value="Edit"></input>
+      <input type="button" value="Delete" onClick={deleteBracelet}></input>
     </article>
   );
 };
