@@ -21,7 +21,7 @@ const BraceletList: FC = () => {
     return bracelets?.map((bracelet: IBracelet, key: number) => {
       //For hvert armbånd vi finner...
       return (
-        <Col md={6} lg={6} xl={3} key={key}>
+        <Col sm={12} md={6} lg={6} xl={6} key={key}>
           <BraceletItem
             id={bracelet.id}
             material={bracelet.material}
@@ -39,7 +39,7 @@ const BraceletList: FC = () => {
     <>
       <Row>
         <section>
-          <p>Antall armbånd: </p>
+          <p>Antall armbånd: {bracelets?.length}</p>
         </section>
       </Row>
 

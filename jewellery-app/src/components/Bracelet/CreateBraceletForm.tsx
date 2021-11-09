@@ -1,6 +1,7 @@
 import { FC, useContext, useState, ChangeEvent } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import { BraceletService } from "../../services/BraceletService";
+import { Row, Col } from "react-bootstrap";
 
 const CreateBraceletForm: FC = () => {
   const [newBracelet, setNewBracelet] = useState<IBracelet>({
@@ -61,22 +62,21 @@ const CreateBraceletForm: FC = () => {
   };
 
   return (
-    <section>
-      <p>Design ditt eget armbånd</p>
-      <div>
-        <label>Navn</label>
-        <input onChange={handleChange} name="name" type="text" />
-        <label>Materiale</label>
-        <input onChange={handleChange} name="material" type="text" />
-        <label>Designet av</label>
-        <input onChange={handleChange} name="brand" type="text" />
-        <label>Pris</label>
-        <input onChange={handleChange} name="price" type="text" />
-        <label>Bilde</label>
-        <input onChange={handleChange} name="image" type="file" />
-      </div>
-      <input type="button" value="Lagre design" onClick={postNewBracelet} />
-    </section>
+    <Col className="bg-danger p-4">
+      <Row><h4>Design ditt eget armbånd</h4></Row>
+      <Row>
+      <Col sm={6} md={6} lg={6} xl={6}>
+        <input onChange={handleChange} placeholder="Navn på smykke..." name="name" type="text" />
+        <input onChange={handleChange} placeholder="Materiale..." name="material" type="text" />
+        <input onChange={handleChange} placeholder="Designet av..." name="brand" type="text" />
+        </Col>
+        <Col sm={6} md={6} lg={6} xl={6}>
+        <input onChange={handleChange} placeholder="Pris på smykke..." name="price" type="text" />
+        <input onChange={handleChange} placeholder="Last opp bilde" name="image" type="file" />
+    </Col>
+    <Row className="mt-4 px-4"><input type="button" value="Lagre design" onClick={postNewBracelet} /></Row>
+    </Row>
+    </Col>
   );
 };
 
