@@ -4,8 +4,8 @@ import BraceletList from "../components/Bracelet/BraceletList";
 
 const Bracelets: FC = () => {
   return (
-    <section>
-      <h2>Armbånd</h2>
+    <section className="font-link pt-5">
+      <h1>Armbånd</h1>
       <BraceletProvider>
         <BraceletList />
       </BraceletProvider>

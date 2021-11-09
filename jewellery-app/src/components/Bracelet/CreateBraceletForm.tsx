@@ -62,20 +62,49 @@ const CreateBraceletForm: FC = () => {
   };
 
   return (
-    <Col className="bg-danger p-4">
-      <Row><h4>Design ditt eget armbånd</h4></Row>
+    <Col className="create-bracelet font-link mx-3 p-4">
       <Row>
-      <Col sm={6} md={6} lg={6} xl={6}>
-        <input onChange={handleChange} placeholder="Navn på smykke..." name="name" type="text" />
-        <input onChange={handleChange} placeholder="Materiale..." name="material" type="text" />
-        <input onChange={handleChange} placeholder="Designet av..." name="brand" type="text" />
+        <h4>Design ditt eget armbånd</h4>
+      </Row>
+      <Row>
+        <Col sm={6} md={6} lg={6} xl={6}>
+          <input
+            onChange={handleChange}
+            placeholder="Navn på smykke..."
+            name="name"
+            type="text"
+          />
+          <input
+            onChange={handleChange}
+            placeholder="Materiale..."
+            name="material"
+            type="text"
+          />
+          <input
+            onChange={handleChange}
+            placeholder="Designet av..."
+            name="brand"
+            type="text"
+          />
         </Col>
         <Col sm={6} md={6} lg={6} xl={6}>
-        <input onChange={handleChange} placeholder="Pris på smykke..." name="price" type="text" />
-        <input onChange={handleChange} placeholder="Last opp bilde" name="image" type="file" />
-    </Col>
-    <Row className="mt-4 px-4"><input type="button" value="Lagre design" onClick={postNewBracelet} /></Row>
-    </Row>
+          <input
+            onChange={handleChange}
+            placeholder="Pris på smykke..."
+            name="price"
+            type="text"
+          />
+          <input
+            onChange={handleChange}
+            placeholder="Last opp bilde"
+            name="image"
+            type="file"
+          />
+        </Col>
+        <Row className="mt-4 px-4">
+          <input type="button" value="Lagre design" onClick={postNewBracelet} />
+        </Row>
+      </Row>
     </Col>
   );
 };

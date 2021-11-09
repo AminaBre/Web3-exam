@@ -42,8 +42,6 @@ const BraceletList: FC = () => {
           <p>Antall armbånd: {bracelets?.length}</p>
         </section>
       </Row>
-
-      <h3>State-utskrift</h3>
       <Row>{createStateBraceletList()}</Row>
       <Row>
         <CreateBraceletForm />

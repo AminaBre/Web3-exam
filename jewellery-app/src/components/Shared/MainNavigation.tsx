@@ -1,20 +1,16 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import "../../App.css";
 
 const MainNavigation: FC = () => {
   return (
-    <Navbar>
+    <Navbar className="navigation-container navbar-light">
       <Container>
-        <Navbar.Brand>
-          <img
-            src={require(`../../assets/images/jewellery-logo.png`).default}
-            width="50"
-            height="50"
-            className="d-inline-block align-top"
-            alt="Jewellery-logo"
-          />
-          Jewellery
+        <Navbar.Brand className="font-link">
+          <a href="/" className="home-link">
+            Jewellery
+          </a>
         </Navbar.Brand>
         <Nav>
           <Nav.Link as={Link} to="/">
