@@ -13,11 +13,9 @@ export const BraceletService = (function () {
     return result.data as IBracelet[];
   };
 
-  const getSingle = async (bracelet: IBracelet) => {
-    const result = await axios.get(urlToBraceletController + "/" + bracelet);
-    //    .then((response) => {
-    //      return result.data as SingleBracelet;
-    //    });
+  const getSingle = async (id: string) => {
+    const result = await axios.get(urlToBraceletController + "/" + id);
+    console.log(result.data);
   };
 
   //CREATE
@@ -36,19 +34,24 @@ export const BraceletService = (function () {
   };
 
   //UPDATE
+  const editBracelet = (id: string, bracelet: IBracelet) => {
+    console.log("edited: " + bracelet.name);
+    console.log("edited id: " + id);
+    axios.put(urlToBraceletController + "/" + id, bracelet);
+  };
 
   //DELETE
 
-  const deleteBracelet = (deletedBracelet: IBracelet) => {
-    axios.delete(urlToBraceletController + "/" + deletedBracelet.id);
-    console.log("deleted");
+  const deleteBracelet = (id: string) => {
+    axios.delete(urlToBraceletController + "/" + id);
+    console.log("deleted: " + id);
   };
-
-  //putBracelet og deleteBracelet
 
   return {
     getAll,
     postNewBracelet,
     deleteBracelet,
+    getSingle,
+    editBracelet,
   };
 })();

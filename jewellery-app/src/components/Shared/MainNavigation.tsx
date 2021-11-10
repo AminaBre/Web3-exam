@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
 const MainNavigation: FC = () => {
   return (
-    <Navbar className="navigation-container navbar-light">
+    <Navbar className="navigation-container navbar-light pt-4">
       <Container>
         <Navbar.Brand className="font-link">
           <a href="/" className="home-link">
@@ -24,6 +26,9 @@ const MainNavigation: FC = () => {
           </Nav.Link>
           <Nav.Link as={Link} to="/rings">
             Ringer
+          </Nav.Link>
+          <Nav.Link as={Link} to="/profile">
+            <FontAwesomeIcon icon={faUser} />
           </Nav.Link>
         </Nav>
       </Container>

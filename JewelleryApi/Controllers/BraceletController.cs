@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using JewelleryApi.Models;
 using System.Collections.Generic;
 using JewelleryApi.Services;
+using System;
 
 namespace JewelleryApi.Controllers
 {
@@ -43,13 +44,17 @@ namespace JewelleryApi.Controllers
 
         //UPDATE
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Bracelet editedBracelet)
+        public IActionResult Put(string id, Bracelet editedBracelet)
         {
             var bracelet = _braceletService.Get(id);
-            if( bracelet == null){
+            
+            if(bracelet == null){
+                Console.WriteLine("bracelet is null");
                 return NotFound();
             }
             _braceletService.Update(id, editedBracelet);
+           
+            
             return NoContent();
         }
 

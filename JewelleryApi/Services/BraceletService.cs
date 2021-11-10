@@ -22,11 +22,10 @@ namespace JewelleryApi.Services
             return _bracelets.Find(bracelet => true).ToList();
         }
 
-        //!!Fra slides
+
         public Bracelet Get(string id){
             return _bracelets.Find<Bracelet>(bracelet => bracelet.Id == id).FirstOrDefault();
         }
-        //!!
 
 
         public Bracelet Create(Bracelet bracelet)
@@ -36,9 +35,8 @@ namespace JewelleryApi.Services
             return bracelet;
         }
 
-        //!!Fra slides
         public void Update(string id, Bracelet editedBracelet) =>
-            _bracelets.ReplaceOne(bracelet => bracelet.Id == editedBracelet.Id, editedBracelet);
+            _bracelets.ReplaceOne(bracelet => bracelet.Id == id, editedBracelet);
         
 
         public void Remove(Bracelet editedBracelet) =>
