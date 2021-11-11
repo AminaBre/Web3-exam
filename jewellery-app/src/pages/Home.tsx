@@ -1,15 +1,13 @@
 import { FC } from "react";
 import { Col, Row } from "react-bootstrap";
-
 import "../App.css";
 
 const Home: FC = () => {
-	
   return (
     <Col>
       <section>
         <Row className="mt-2">
-				  <Col sm={6} md={6}>
+          <Col sm={6} md={6}>
             <img
               src={require("../assets/images/main-image1.jpeg").default}
               className="d-inline-block align-top mw-100"

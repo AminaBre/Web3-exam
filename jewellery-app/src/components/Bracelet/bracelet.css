@@ -1,13 +1,11 @@
-.bracelet-item {
-  background-color: #aa6f5d;
+* {
   color: white;
+}
+
+.bracelet-item {
+  background-color: #7e4f40;
 }
 
 .create-bracelet {
-  background-color: #aa6f5d;
-  color: white;
-}
-
-.search-bar {
-	color: white;
+  background-color: #7e4f40;
 }

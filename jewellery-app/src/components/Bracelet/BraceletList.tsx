@@ -5,7 +5,6 @@ import { BraceletService } from "../../services/BraceletService";
 import CreateBraceletForm from "./CreateBraceletForm";
 import { Row, Col } from "react-bootstrap";
 import "./bracelet.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BraceletList: FC = () => {
   const [bracelets, setBracelets] = useState<IBracelet[]>();
@@ -23,7 +22,7 @@ const BraceletList: FC = () => {
   const createStateBraceletList = () => {
     return bracelets
       ?.filter((val) => {
-        if (searchTerm == "") {
+        if (searchTerm === "") {
           return val;
         } else if (
           val.name?.toLowerCase().includes(searchTerm.toLocaleLowerCase())
@@ -56,7 +55,7 @@ const BraceletList: FC = () => {
             <p>Antall armbånd: {bracelets?.length}</p>
           </Col>
           <Col>
-            <div className="input-group search-bar">
+            <div className="input-group">
               <input
                 type="text"
                 className="form-control shadow-none"
@@ -66,12 +65,11 @@ const BraceletList: FC = () => {
                 }}
               />
               <span className="input-group-addon fa-lg p-2">
-                <i className="fa fa-search " />
+                <i className="fa fa-search" />
               </span>
             </div>
           </Col>
         </Row>
-        <Row></Row>
         <Row>{createStateBraceletList()}</Row>
         <Row>
           <CreateBraceletForm />

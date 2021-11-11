@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #c2907e;
+}
+
+html {
+  background-color: #c2907e;
 }
 
 .font-link {
@@ -20,4 +25,20 @@ a:hover {
 
 .home-link {
   font-size: 2rem;
+}
+
+.navigation-container {
+  background-color: #c2907eb3;
+}
+
+.footer {
+  text-align: center;
+}
+
+.error-page {
+  text-align: center;
+}
+
+.errorWoman {
+  border-radius: 50px;
 }
