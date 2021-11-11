@@ -6,7 +6,6 @@ import CreateBraceletForm from "./CreateBraceletForm";
 import { Row, Col } from "react-bootstrap";
 import "./bracelet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const BraceletList: FC = () => {
   const [bracelets, setBracelets] = useState<IBracelet[]>();
@@ -22,21 +21,31 @@ const BraceletList: FC = () => {
   };
 
   const createStateBraceletList = () => {
-    return bracelets?.map((bracelet: IBracelet, key: number) => {
-      //For hvert armbånd vi finner...
-      return (
-        <Col sm={12} md={6} lg={6} xl={6} key={key}>
-          <BraceletItem
-            id={bracelet.id}
-            material={bracelet.material}
-            image={bracelet.image}
-            name={bracelet.name}
-            brand={bracelet.brand}
-            price={bracelet.price}
-          />
-        </Col>
-      );
-    });
+    return bracelets
+      ?.filter((val) => {
+        if (searchTerm == "") {
+          return val;
+        } else if (
+          val.name?.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        ) {
+          return val;
+        }
+      })
+      .map((bracelet: IBracelet, key: number) => {
+        //For hvert armbånd vi finner...
+        return (
+          <Col sm={12} md={6} lg={6} xl={6} key={key} className="user">
+            <BraceletItem
+              id={bracelet.id}
+              material={bracelet.material}
+              image={bracelet.image}
+              name={bracelet.name}
+              brand={bracelet.brand}
+              price={bracelet.price}
+            />
+          </Col>
+        );
+      });
   };
 
   return (
