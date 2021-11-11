@@ -7,7 +7,7 @@ import "../../App.css";
 
 const MainNavigation: FC = () => {
   return (
-    <Navbar className="navigation-container navbar-light pt-4">
+    <Navbar className="navigation-container navbar-light pt-3">
       <Container>
         <Navbar.Brand className="font-link">
           <a href="/" className="home-link">
@@ -28,7 +28,7 @@ const MainNavigation: FC = () => {
             Ringer
           </Nav.Link>
           <Nav.Link as={Link} to="/profile">
-            <FontAwesomeIcon icon={faUser} />
+            <FontAwesomeIcon icon={faUser} className="fa-lg"/>
           </Nav.Link>
         </Nav>
       </Container>

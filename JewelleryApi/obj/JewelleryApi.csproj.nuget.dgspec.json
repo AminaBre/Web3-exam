@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aminabrenneng/Desktop/Skole/Web3/Eksamen/JewelleryApi/JewelleryApi.csproj": {}
+    "C:\\Users\\cn4676\\Downloads\\Web3-exam\\JewelleryApi\\JewelleryApi.csproj": {}
   },
   "projects": {
-    "/Users/aminabrenneng/Desktop/Skole/Web3/Eksamen/JewelleryApi/JewelleryApi.csproj": {
+    "C:\\Users\\cn4676\\Downloads\\Web3-exam\\JewelleryApi\\JewelleryApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aminabrenneng/Desktop/Skole/Web3/Eksamen/JewelleryApi/JewelleryApi.csproj",
+        "projectUniqueName": "C:\\Users\\cn4676\\Downloads\\Web3-exam\\JewelleryApi\\JewelleryApi.csproj",
         "projectName": "JewelleryApi",
-        "projectPath": "/Users/aminabrenneng/Desktop/Skole/Web3/Eksamen/JewelleryApi/JewelleryApi.csproj",
-        "packagesPath": "/Users/aminabrenneng/.nuget/packages/",
-        "outputPath": "/Users/aminabrenneng/Desktop/Skole/Web3/Eksamen/JewelleryApi/obj/",
+        "projectPath": "C:\\Users\\cn4676\\Downloads\\Web3-exam\\JewelleryApi\\JewelleryApi.csproj",
+        "packagesPath": "C:\\Users\\cn4676\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cn4676\\Downloads\\Web3-exam\\JewelleryApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/aminabrenneng/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\cn4676\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

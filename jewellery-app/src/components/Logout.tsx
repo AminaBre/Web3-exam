@@ -6,7 +6,7 @@ const clientId =
 function Logout() {
   const onSuccess = () => {
     console.log("Logout made successfully");
-    alert("Du er nå logget ut");
+    alert("Du er nå logget ut 🏃‍♀️");
   };
 
   return (

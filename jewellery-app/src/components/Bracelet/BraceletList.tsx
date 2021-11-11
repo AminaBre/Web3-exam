@@ -4,9 +4,13 @@ import BraceletItem from "./BraceletItem";
 import { BraceletService } from "../../services/BraceletService";
 import CreateBraceletForm from "./CreateBraceletForm";
 import { Row, Col } from "react-bootstrap";
+import "./bracelet.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const BraceletList: FC = () => {
   const [bracelets, setBracelets] = useState<IBracelet[]>();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     getAllBracelets();
@@ -37,15 +41,33 @@ const BraceletList: FC = () => {
 
   return (
     <>
-      <Row>
-        <section>
-          <p>Antall armbånd: {bracelets?.length}</p>
-        </section>
-      </Row>
-      <Row>{createStateBraceletList()}</Row>
-      <Row>
-        <CreateBraceletForm />
-      </Row>
+      <Col>
+        <Row>
+          <Col>
+            <p>Antall armbånd: {bracelets?.length}</p>
+          </Col>
+          <Col>
+            <div className="input-group search-bar">
+              <input
+                type="text"
+                className="form-control shadow-none"
+                placeholder="Søk etter armbånd..."
+                onChange={(event) => {
+                  setSearchTerm(event.target.value);
+                }}
+              />
+              <span className="input-group-addon fa-lg p-2">
+                <i className="fa fa-search " />
+              </span>
+            </div>
+          </Col>
+        </Row>
+        <Row></Row>
+        <Row>{createStateBraceletList()}</Row>
+        <Row>
+          <CreateBraceletForm />
+        </Row>
+      </Col>
     </>
   );
 };
