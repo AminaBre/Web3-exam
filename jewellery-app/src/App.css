@@ -27,12 +27,22 @@ a:hover {
   font-size: 2rem;
 }
 
-.navigation-container {
+.navigation {
   background-color: #c2907eb3;
+}
+
+.navigation-container {
+  border-bottom: 2px solid rgb(228, 212, 200);
 }
 
 .footer {
   text-align: center;
+  border-top: 2px solid rgb(228, 212, 200);
+}
+
+.footer-logo {
+  max-width: 10%;
+  border-radius: 50px;
 }
 
 .error-page {

@@ -33,7 +33,7 @@ const BraceletList: FC = () => {
       .map((bracelet: IBracelet, key: number) => {
         //For hvert armbånd vi finner...
         return (
-          <Col sm={12} md={6} lg={6} xl={6} key={key} className="user">
+          <Col sm={12} md={6} lg={6} xl={6} key={key} className="bracelet-text">
             <BraceletItem
               id={bracelet.id}
               material={bracelet.material}

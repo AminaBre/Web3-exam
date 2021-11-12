@@ -7,8 +7,8 @@ import "../../App.css";
 
 const MainNavigation: FC = () => {
   return (
-    <Navbar className="navigation-container sticky-top navbar-light pt-3">
-      <Container>
+    <Navbar className="navigation sticky-top navbar-light pt-3">
+      <Container className="navigation-container">
         <Navbar.Brand className="font-link">
           <a href="/" className="home-link">
             Jewellery

@@ -1,7 +1,7 @@
 import { FC, useContext, useState, ChangeEvent } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import { BraceletService } from "../../services/BraceletService";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 
 const CreateBraceletForm: FC = () => {
   const [newBracelet, setNewBracelet] = useState<IBracelet>({
@@ -55,10 +55,8 @@ const CreateBraceletForm: FC = () => {
   };
 
   const postNewBracelet = () => {
-    console.log(newBracelet);
-    console.log(newImage);
-
     BraceletService.postNewBracelet(newBracelet, newImage as File);
+    window.location.reload();
   };
 
   return (
@@ -67,43 +65,46 @@ const CreateBraceletForm: FC = () => {
         <h4>Design ditt eget armbånd</h4>
       </Row>
       <Row>
-        <Col sm={6} md={6} lg={6} xl={6}>
+        <Col sm={6}>
           <input
             onChange={handleChange}
             placeholder="Navn på smykke..."
             name="name"
             type="text"
+            className="form-control shadow-none my-3"
           />
           <input
             onChange={handleChange}
             placeholder="Materiale..."
             name="material"
             type="text"
+            className="form-control my-3"
           />
           <input
             onChange={handleChange}
             placeholder="Designet av..."
             name="brand"
             type="text"
+            className="form-control my-3"
           />
         </Col>
-        <Col sm={6} md={6} lg={6} xl={6}>
+        <Col sm={6}>
           <input
             onChange={handleChange}
             placeholder="Pris på smykke..."
             name="price"
             type="text"
+            className="form-control my-3"
           />
+          <Form.Control type="file" name="image" onChange={handleChange} />
+
           <input
-            onChange={handleChange}
-            placeholder="Last opp bilde"
-            name="image"
-            type="file"
+            type="button"
+            className="btn btn-outline-light my-3 w-100"
+            value="Lagre design"
+            onClick={postNewBracelet}
           />
         </Col>
-        <Row className="mt-4 px-4">
-          <input type="button" value="Lagre design" onClick={postNewBracelet} />
-        </Row>
       </Row>
     </Col>
   );

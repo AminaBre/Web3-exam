@@ -1,11 +1,21 @@
-* {
-  color: white;
-}
-
 .bracelet-item {
-  background-color: #7e4f40;
+  background-color: #ffffff;
+  color: rgb(143, 92, 59);
 }
 
 .create-bracelet {
-  background-color: #7e4f40;
+  border-top: 2px solid rgb(228, 212, 200);
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
+.fa-search {
+  color: white;
+}
+
+.delete-icon {
+  text-align: right;
 }
