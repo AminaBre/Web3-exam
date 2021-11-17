@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { ChangeEvent, FC, useContext, useEffect, useState } from "react";
 import { BraceletContext } from "../contexts/BraceletContext";
 import { BraceletContextType } from "../types/BraceletContextType";
 import { IBracelet } from "../interfaces/IBracelet";
@@ -11,28 +11,64 @@ import { BraceletService } from "../services/BraceletService";
 const BraceletDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  const [oldBracelet, newBracelet] = useState<IBracelet[]>();
-
   const deleteBracelet = () => {
     console.log("Bracelet deleted " + bracelet?.name);
 
-    //let strid: string = id ?? "";
+    let strid: string = id ?? "";
 
-    //BraceletService.deleteBracelet(strid);
-    //window.location.reload();
+    BraceletService.deleteBracelet(strid);
+    window.location.reload();
+  };
+
+  const [oldBracelet, newBracelet] = useState<IBracelet>({
+    id: "",
+    name: "",
+    material: "",
+    brand: "",
+    image: "",
+    price: 0,
+  });
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    let { name } = event.target;
+    switch (name) {
+      case "name":
+        var { value } = event.target;
+        newBracelet({
+          ...oldBracelet,
+          name: value,
+        });
+        break;
+      case "brand":
+        var { value } = event.target;
+        newBracelet({
+          ...oldBracelet,
+          brand: value,
+        });
+        break;
+      case "material":
+        var { value } = event.target;
+        newBracelet({
+          ...oldBracelet,
+          material: value,
+        });
+        break;
+      case "price":
+        var { value } = event.target;
+        newBracelet({
+          ...oldBracelet,
+          price: parseInt(value),
+        });
+        break;
+    }
   };
 
   const editBracelet = () => {
-    console.log("Edited bracelet " + bracelet?.name);
+    let strid: string = id ?? "";
 
-    //let strid: string = id ?? "";
-    /*let editedBracelet: IBracelet = {
-      id: strid,
-      name: "test",
-      brand: "merke",
-    };*/
-
-    //BraceletService.editBracelet(strid, editedBracelet);
+    oldBracelet.id = strid;
+    oldBracelet.image = bracelet?.image;
+    BraceletService.editBracelet(strid, oldBracelet);
   };
 
   const { getBraceletById } = useContext(
@@ -73,26 +109,30 @@ const BraceletDetails: FC = () => {
           </Row>
           <Row>
             <input
+              onChange={handleChange}
               placeholder={bracelet?.name}
               name="name"
               type="text"
               className="form-control shadow-none my-3"
             />
             <input
+              onChange={handleChange}
               placeholder={bracelet?.material}
-              name="name"
+              name="material"
               type="text"
               className="form-control shadow-none my-3"
             />
             <input
+              onChange={handleChange}
               placeholder={bracelet?.brand}
-              name="name"
+              name="brand"
               type="text"
               className="form-control shadow-none my-3"
             />
             <input
+              onChange={handleChange}
               placeholder="Forslag til pris"
-              name="name"
+              name="price"
               type="text"
               className="form-control shadow-none my-3"
             />
@@ -103,6 +143,7 @@ const BraceletDetails: FC = () => {
                 type="button"
                 className="btn btn-outline-dark my-3 w-100"
                 value="Oppdater smykke"
+                onClick={editBracelet}
               />
             </Col>
             <Col xs={2}>
