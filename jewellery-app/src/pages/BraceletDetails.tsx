@@ -13,14 +13,11 @@ const BraceletDetails: FC = () => {
 
   const deleteBracelet = () => {
     console.log("Bracelet deleted " + bracelet?.name);
-
-    let strid: string = id ?? "";
-
-    BraceletService.deleteBracelet(strid);
+    BraceletService.deleteBracelet(id);
     window.location.reload();
   };
 
-  const [oldBracelet, newBracelet] = useState<IBracelet>({
+  const [bracelet, newBracelet] = useState<IBracelet>({
     id: "",
     name: "",
     material: "",
@@ -35,28 +32,28 @@ const BraceletDetails: FC = () => {
       case "name":
         var { value } = event.target;
         newBracelet({
-          ...oldBracelet,
+          ...bracelet,
           name: value,
         });
         break;
       case "brand":
         var { value } = event.target;
         newBracelet({
-          ...oldBracelet,
+          ...bracelet,
           brand: value,
         });
         break;
       case "material":
         var { value } = event.target;
         newBracelet({
-          ...oldBracelet,
+          ...bracelet,
           material: value,
         });
         break;
       case "price":
         var { value } = event.target;
         newBracelet({
-          ...oldBracelet,
+          ...bracelet,
           price: parseInt(value),
         });
         break;
@@ -64,23 +61,17 @@ const BraceletDetails: FC = () => {
   };
 
   const editBracelet = () => {
-    let strid: string = id ?? "";
-
-    oldBracelet.id = strid;
-    oldBracelet.image = bracelet?.image;
-    BraceletService.editBracelet(strid, oldBracelet);
+    BraceletService.editBracelet(id, bracelet);
   };
 
   const { getBraceletById } = useContext(
     BraceletContext
   ) as BraceletContextType;
 
-  const [bracelet, setBracelet] = useState<IBracelet>();
-
   useEffect(() => {
     if (id) {
       const _bracelet = getBraceletById(id);
-      setBracelet(_bracelet);
+      newBracelet(_bracelet);
     }
   }, []);
 
