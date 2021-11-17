@@ -28,12 +28,16 @@ export const BraceletProvider: FC = ({ children }) => {
   const getBracelets = async () => {
     const _bracelets = await BraceletService.getAll();
     setBracelets(_bracelets);
-    console.log(_bracelets);
+  };
+
+  const getBraceletById = (id: string) => {
+    return bracelets.find((bracelet) => bracelet.id === id) as IBracelet;
+    //if-else om vi  finner objekter
   };
 
   return (
     <>
-      <BraceletContext.Provider value={{ bracelets }}>
+      <BraceletContext.Provider value={{ bracelets, getBraceletById }}>
         {children}
       </BraceletContext.Provider>
     </>

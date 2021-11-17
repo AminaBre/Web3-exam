@@ -1,6 +1,14 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { FC } from "react";
-import { Home, Rings, Necklaces, Bracelets, Error, Profile } from "../pages";
+import {
+  Home,
+  Rings,
+  Necklaces,
+  Bracelets,
+  Error,
+  Profile,
+  BraceletDetails,
+} from "../pages";
 import MainNavigation from "../components/Shared/MainNavigation";
 import Footer from "../components/Shared/Footer";
 import { Container } from "react-bootstrap";
@@ -17,6 +25,7 @@ const Routing: FC = () => {
             path={["/bracelets", "/armband", "/armsmykke"]}
             component={Bracelets}
           />
+          <Route path="/bracelet-details/:id" component={BraceletDetails} />
           <Route
             path={["/necklaces", "/kjeder", "/halssmykke"]}
             component={Necklaces}

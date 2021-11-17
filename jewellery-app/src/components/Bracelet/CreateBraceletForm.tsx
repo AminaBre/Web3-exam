@@ -5,6 +5,7 @@ import { Row, Col, Form } from "react-bootstrap";
 
 const CreateBraceletForm: FC = () => {
   const [newBracelet, setNewBracelet] = useState<IBracelet>({
+    id: "",
     name: "",
     material: "",
     brand: "",
@@ -78,14 +79,14 @@ const CreateBraceletForm: FC = () => {
             placeholder="Materiale..."
             name="material"
             type="text"
-            className="form-control my-3"
+            className="form-control shadow-none my-3"
           />
           <input
             onChange={handleChange}
             placeholder="Designet av..."
             name="brand"
             type="text"
-            className="form-control my-3"
+            className="form-control shadow-none my-3"
           />
         </Col>
         <Col sm={6}>
@@ -94,7 +95,7 @@ const CreateBraceletForm: FC = () => {
             placeholder="Pris på smykke..."
             name="price"
             type="text"
-            className="form-control my-3"
+            className="form-control shadow-none my-3"
           />
           <Form.Control type="file" name="image" onChange={handleChange} />
 
