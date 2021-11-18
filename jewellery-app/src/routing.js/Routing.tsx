@@ -8,6 +8,7 @@ import {
   Error,
   Profile,
   BraceletDetails,
+  NecklaceDetails,
 } from "../pages";
 import MainNavigation from "../components/Shared/MainNavigation";
 import Footer from "../components/Shared/Footer";
@@ -30,6 +31,7 @@ const Routing: FC = () => {
             path={["/necklaces", "/kjeder", "/halssmykke"]}
             component={Necklaces}
           />
+          <Route path="/necklace-details/:id" component={NecklaceDetails} />
           <Route path={["/rings", "/ringer"]} component={Rings} />
           <Route path={"/profile"} component={Profile} />
           <Route path="*" component={Error} />

@@ -1,9 +1,9 @@
 export interface INecklace {
   //Kontrakt
-  id?: string;
+  id: string;
   image?: string;
-  name: string;
-  material: string;
-  brand: string;
-  price: number;
+  name?: string;
+  material?: string;
+  brand?: string;
+  price?: number;
 }

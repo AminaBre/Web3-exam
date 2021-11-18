@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BraceletProvider } from "../contexts/BraceletContext";
 import BraceletList from "../components/Bracelet/BraceletList";
-import "../components/Bracelet/bracelet.css";
+import "../components/Shared/cards.css";
 
 const Bracelets: FC = () => {
   return (

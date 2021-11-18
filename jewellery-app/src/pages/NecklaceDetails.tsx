@@ -1,27 +1,26 @@
 import { ChangeEvent, FC, useContext, useEffect, useState } from "react";
-import { BraceletContext } from "../contexts/BraceletContext";
-import { BraceletContextType } from "../types/BraceletContextType";
-import { IBracelet } from "../interfaces/IBracelet";
+import { NecklaceContext } from "../contexts/NecklaceContext";
+import { NecklaceContextType } from "../types/NecklaceContextType";
+import { INecklace } from "../interfaces/INecklace";
 import { useParams } from "react-router";
 import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { BraceletService } from "../services/BraceletService";
-import { Link, useHistory } from "react-router-dom";
-import "../components/Shared/cards.css";
+import { NecklaceService } from "../services/NecklaceService";
+import { useHistory } from "react-router-dom";
 
-const BraceletDetails: FC = () => {
+const NecklaceDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
 
   const history = useHistory();
 
-  const deleteBracelet = () => {
-    console.log("Bracelet deleted " + bracelet?.name);
-    BraceletService.deleteBracelet(id);
-    history.push("/bracelets");
+  const deleteNecklace = () => {
+    console.log("Necklace deleted " + necklace?.name);
+    NecklaceService.deleteNecklace(id);
+    history.push("/necklaces");
   };
 
-  const [bracelet, newBracelet] = useState<IBracelet>({
+  const [necklace, newNecklace] = useState<INecklace>({
     id: "",
     name: "",
     material: "",
@@ -35,47 +34,47 @@ const BraceletDetails: FC = () => {
     switch (name) {
       case "name":
         var { value } = event.target;
-        newBracelet({
-          ...bracelet,
+        newNecklace({
+          ...necklace,
           name: value,
         });
         break;
       case "brand":
         var { value } = event.target;
-        newBracelet({
-          ...bracelet,
+        newNecklace({
+          ...necklace,
           brand: value,
         });
         break;
       case "material":
         var { value } = event.target;
-        newBracelet({
-          ...bracelet,
+        newNecklace({
+          ...necklace,
           material: value,
         });
         break;
       case "price":
         var { value } = event.target;
-        newBracelet({
-          ...bracelet,
+        newNecklace({
+          ...necklace,
           price: parseInt(value),
         });
         break;
     }
   };
 
-  const editBracelet = () => {
-    BraceletService.editBracelet(id, bracelet);
+  const editNecklace = () => {
+    NecklaceService.editNecklace(id, necklace);
   };
 
-  const { getBraceletById } = useContext(
-    BraceletContext
-  ) as BraceletContextType;
+  const { getNecklaceById } = useContext(
+    NecklaceContext
+  ) as NecklaceContextType;
 
   useEffect(() => {
     if (id) {
-      const _bracelet = getBraceletById(id);
-      newBracelet(_bracelet);
+      const _necklace = getNecklaceById(id);
+      newNecklace(_necklace);
     }
   }, []);
 
@@ -85,8 +84,8 @@ const BraceletDetails: FC = () => {
         <Col sm={7} md={7} lg={8} xl={8}>
           <img
             className="img-fluid w-75"
-            src={`https://localhost:5001/images/${bracelet?.image}`}
-            alt={bracelet?.name}
+            src={`https://localhost:5001/images/${necklace?.image}`}
+            alt={necklace?.name}
           />
         </Col>
         <Col sm={5} md={5} lg={4} xl={4}>
@@ -95,33 +94,32 @@ const BraceletDetails: FC = () => {
               <h2>Rediger</h2>
             </Col>
             <Col>
-              <Link to="/bracelets">
-                <FontAwesomeIcon
-                  icon={faTimes}
-                  onClick={deleteBracelet}
-                  size="lg"
-                />
-              </Link>
+              <FontAwesomeIcon
+                icon={faTimes}
+                onClick={deleteNecklace}
+                size="lg"
+                className="delete-icon"
+              />
             </Col>
           </Row>
           <Row>
             <input
               onChange={handleChange}
-              placeholder={bracelet?.name}
+              placeholder={necklace?.name}
               name="name"
               type="text"
               className="form-control shadow-none my-3"
             />
             <input
               onChange={handleChange}
-              placeholder={bracelet?.material}
+              placeholder={necklace?.material}
               name="material"
               type="text"
               className="form-control shadow-none my-3"
             />
             <input
               onChange={handleChange}
-              placeholder={bracelet?.brand}
+              placeholder={necklace?.brand}
               name="brand"
               type="text"
               className="form-control shadow-none my-3"
@@ -140,7 +138,7 @@ const BraceletDetails: FC = () => {
                 type="button"
                 className="btn btn-outline-dark my-3 w-100"
                 value="Oppdater smykke"
-                onClick={editBracelet}
+                onClick={editNecklace}
               />
             </Col>
             <Col xs={2}>
@@ -153,4 +151,4 @@ const BraceletDetails: FC = () => {
   );
 };
 
-export default BraceletDetails;
+export default NecklaceDetails;

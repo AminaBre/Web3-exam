@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../../utils/refreshToken";
 import "./UserProfile.css";
 
@@ -20,7 +20,7 @@ const Login: FC = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [url, setUrl] = useState("Bilde");
+  const [url, setUrl] = useState("");
 
   const onFailure = (res: any) => {
     console.log("[Loginfailed] res:", res);

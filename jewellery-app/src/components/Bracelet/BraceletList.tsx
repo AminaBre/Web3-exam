@@ -4,20 +4,13 @@ import BraceletItem from "./BraceletItem";
 import { BraceletService } from "../../services/BraceletService";
 import CreateBraceletForm from "./CreateBraceletForm";
 import { Row, Col } from "react-bootstrap";
-import "./bracelet.css";
+import "../Shared/cards.css";
+import { BraceletContext } from "../../contexts/BraceletContext";
+import { BraceletContextType } from "../../types/BraceletContextType";
 
 const BraceletList: FC = () => {
-  const [bracelets, setBracelets] = useState<IBracelet[]>();
+  const { bracelets } = useContext(BraceletContext) as BraceletContextType;
   const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    getAllBracelets();
-  }, []);
-
-  const getAllBracelets = async () => {
-    const result = await BraceletService.getAll();
-    setBracelets(result);
-  };
 
   const createStateBraceletList = () => {
     return bracelets
@@ -31,9 +24,8 @@ const BraceletList: FC = () => {
         }
       })
       .map((bracelet: IBracelet, key: number) => {
-        //For hvert armbånd vi finner...
         return (
-          <Col sm={12} md={6} lg={6} xl={6} key={key} className="bracelet-text">
+          <Col sm={12} md={6} lg={6} xl={6} key={key} className="product-card">
             <BraceletItem
               id={bracelet.id}
               material={bracelet.material}

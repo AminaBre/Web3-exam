@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import { Row, Col } from "react-bootstrap";
-import "./bracelet.css";
+import "../Shared/cards.css";
 import { Link } from "react-router-dom";
 
 const BraceletItem: FC<IBracelet> = ({
@@ -15,7 +15,7 @@ const BraceletItem: FC<IBracelet> = ({
   return (
     <>
       <Link to={`/bracelet-details/${id}`}>
-        <Row className="bracelet-item font-link p-3 my-3 mx-2">
+        <Row className="product-card-item font-link p-3 my-3 mx-2">
           <Col sm={7} md={7} lg={8} xl={8}>
             <img
               className="img-fluid"

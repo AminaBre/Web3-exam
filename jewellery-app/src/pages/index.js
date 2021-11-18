@@ -5,5 +5,15 @@ import Rings from "./Rings";
 import Error from "./Error";
 import Profile from "./Profile";
 import BraceletDetails from "./BraceletDetails";
+import NecklaceDetails from "./NecklaceDetails";
 
-export { Home, Necklaces, Rings, Bracelets, Error, Profile, BraceletDetails };
+export {
+  Home,
+  Necklaces,
+  Rings,
+  Bracelets,
+  Error,
+  Profile,
+  BraceletDetails,
+  NecklaceDetails,
+};

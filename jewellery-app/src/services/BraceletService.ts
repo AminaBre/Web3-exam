@@ -36,7 +36,6 @@ export const BraceletService = (function () {
   //UPDATE
   const editBracelet = (id: string, bracelet: IBracelet) => {
     console.log("edited: " + bracelet.name);
-    console.log("edited id: " + id);
     axios.put(urlToBraceletController + "/" + id, bracelet);
   };
 

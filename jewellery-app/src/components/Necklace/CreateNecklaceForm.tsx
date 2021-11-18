@@ -1,10 +1,10 @@
 import { FC, useContext, useState, ChangeEvent } from "react";
-import { IBracelet } from "../../interfaces/IBracelet";
-import { BraceletService } from "../../services/BraceletService";
+import { INecklace } from "../../interfaces/INecklace";
+import { NecklaceService } from "../../services/NecklaceService";
 import { Row, Col, Form } from "react-bootstrap";
 
-const CreateBraceletForm: FC = () => {
-  const [newBracelet, setNewBracelet] = useState<IBracelet>({
+const CreateNecklaceForm: FC = () => {
+  const [newNecklace, setNewNecklace] = useState<INecklace>({
     id: "",
     name: "",
     material: "",
@@ -19,22 +19,22 @@ const CreateBraceletForm: FC = () => {
     switch (name) {
       case "name":
         var { value } = event.target;
-        setNewBracelet({
-          ...newBracelet,
+        setNewNecklace({
+          ...newNecklace,
           name: value,
         });
         break;
       case "brand":
         var { value } = event.target;
-        setNewBracelet({
-          ...newBracelet,
+        setNewNecklace({
+          ...newNecklace,
           brand: value,
         });
         break;
       case "material":
         var { value } = event.target;
-        setNewBracelet({
-          ...newBracelet,
+        setNewNecklace({
+          ...newNecklace,
           material: value,
         });
         break;
@@ -43,8 +43,8 @@ const CreateBraceletForm: FC = () => {
         if (value.length === 0) {
           console.log("Fyll ut pris");
         } else {
-          setNewBracelet({
-            ...newBracelet,
+          setNewNecklace({
+            ...newNecklace,
             price: parseInt(value),
           });
         }
@@ -52,33 +52,33 @@ const CreateBraceletForm: FC = () => {
       case "image":
         let { files } = event.target;
         if (files) {
-          setNewBracelet({ ...newBracelet, image: files[0].name });
+          setNewNecklace({ ...newNecklace, image: files[0].name });
           setNewImage(files[0]);
         }
         break;
     }
   };
 
-  const postNewBracelet = () => {
-    if (newBracelet.name?.length === 0) {
+  const postNewNecklace = () => {
+    if (newNecklace.name?.length === 0) {
       alert("Du må gi smykket et navn ✨");
-    } else if (newBracelet.brand?.length === 0) {
+    } else if (newNecklace.brand?.length === 0) {
       alert("Du må gi smykket et merke 🌟");
-    } else if (newBracelet.material?.length === 0) {
+    } else if (newNecklace.material?.length === 0) {
       alert("Du må gi smykket et materiale 👑");
-    } else if (newBracelet.image?.length === 0) {
+    } else if (newNecklace.image?.length === 0) {
       alert("Du må gi smykket et bilde 💎");
-    } else if (newBracelet.price === 0) {
+    } else if (newNecklace.price === 0) {
       alert("Du må gi smykket en pris 💰");
     } else {
-      BraceletService.postNewBracelet(newBracelet, newImage as File);
+      NecklaceService.postNewNecklace(newNecklace, newImage as File);
     }
   };
 
   return (
     <Col className="create font-link mx-3 p-4">
       <Row>
-        <h4>Design ditt eget armbånd</h4>
+        <h4>Design ditt eget kjede</h4>
       </Row>
       <Row>
         <Col sm={6}>
@@ -118,7 +118,7 @@ const CreateBraceletForm: FC = () => {
             type="button"
             className="btn btn-outline-light my-3 w-100"
             value="Lagre design"
-            onClick={postNewBracelet}
+            onClick={postNewNecklace}
           />
         </Col>
       </Row>
@@ -126,4 +126,4 @@ const CreateBraceletForm: FC = () => {
   );
 };
 
-export default CreateBraceletForm;
+export default CreateNecklaceForm;

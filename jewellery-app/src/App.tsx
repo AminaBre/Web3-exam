@@ -4,13 +4,16 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import { FC } from "react";
 import Routing from "./routing.js/Routing";
 import { BraceletProvider } from "./contexts/BraceletContext";
+import { NecklaceProvider } from "./contexts/NecklaceContext";
 
 const App: FC = () => {
   return (
     <div className="main-container">
-      <BraceletProvider>
-        <Routing />
-      </BraceletProvider>
+      <NecklaceProvider>
+        <BraceletProvider>
+          <Routing />
+        </BraceletProvider>
+      </NecklaceProvider>
     </div>
   );
 };
