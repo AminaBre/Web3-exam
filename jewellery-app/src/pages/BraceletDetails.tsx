@@ -7,6 +7,8 @@ import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { BraceletService } from "../services/BraceletService";
+import BraceletList from "../components/Bracelet/BraceletList";
+import { Link } from "react-router-dom";
 
 const BraceletDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +16,6 @@ const BraceletDetails: FC = () => {
   const deleteBracelet = () => {
     console.log("Bracelet deleted " + bracelet?.name);
     BraceletService.deleteBracelet(id);
-    window.location.reload();
   };
 
   const [bracelet, newBracelet] = useState<IBracelet>({
@@ -91,11 +92,13 @@ const BraceletDetails: FC = () => {
               <h2>Rediger</h2>
             </Col>
             <Col>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={deleteBracelet}
-                size="lg"
-              />
+              <Link to="/bracelets">
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={deleteBracelet}
+                  size="lg"
+                />
+              </Link>
             </Col>
           </Row>
           <Row>

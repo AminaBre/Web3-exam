@@ -1,15 +1,17 @@
 import { FC } from "react";
-import Login from "../components/Login";
-import Logout from "../components/Logout";
-
+import { Row } from "react-bootstrap";
+import Login from "../components/UserProfile/Login";
+import Logout from "../components/UserProfile/Logout";
 
 const Profile: FC = () => {
   return (
     <section className="font-link">
-      <h3>Din Profil</h3>
-		  <Login />
-
-      <Logout />
+      <Row className="mt-3">
+        <Login />
+      </Row>
+      <Row className="mt-5">
+        <Logout />
+      </Row>
     </section>
   );
 };

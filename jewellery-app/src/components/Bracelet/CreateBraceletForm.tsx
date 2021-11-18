@@ -40,10 +40,14 @@ const CreateBraceletForm: FC = () => {
         break;
       case "price":
         var { value } = event.target;
-        setNewBracelet({
-          ...newBracelet,
-          price: parseInt(value),
-        });
+        if (value.length === 0) {
+          console.log("Fyll ut pris");
+        } else {
+          setNewBracelet({
+            ...newBracelet,
+            price: parseInt(value),
+          });
+        }
         break;
       case "image":
         let { files } = event.target;
@@ -55,9 +59,24 @@ const CreateBraceletForm: FC = () => {
     }
   };
 
+  const gold = "gull";
+  const silver = "sølv";
+
   const postNewBracelet = () => {
-    BraceletService.postNewBracelet(newBracelet, newImage as File);
-    window.location.reload();
+    if (newBracelet.name?.length === 0) {
+      alert("Du må gi smykket et navn ✨");
+    } else if (newBracelet.brand?.length === 0) {
+      alert("Du må gi smykket et merke 🌟");
+    } else if (newBracelet.material?.length === 0) {
+      alert("Du må gi smykket et materiale 👑");
+    } else if (newBracelet.image?.length === 0) {
+      alert("Du må gi smykket et bilde 💎");
+    } else if (newBracelet.price === 0) {
+      alert("Du må gi smykket en pris 💰");
+    } else {
+      BraceletService.postNewBracelet(newBracelet, newImage as File);
+      window.location.reload();
+    }
   };
 
   return (

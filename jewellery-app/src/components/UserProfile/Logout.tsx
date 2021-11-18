@@ -7,6 +7,7 @@ function Logout() {
   const onSuccess = () => {
     console.log("Logout made successfully");
     alert("Du er nå logget ut 🏃‍♀️");
+    window.location.reload();
   };
 
   return (

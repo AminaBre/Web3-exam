@@ -1,10 +1,7 @@
-import React, { FC, MouseEvent } from "react";
-import { BraceletService } from "../../services/BraceletService";
+import React, { FC } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import { Row, Col } from "react-bootstrap";
 import "./bracelet.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const BraceletItem: FC<IBracelet> = ({
@@ -15,27 +12,6 @@ const BraceletItem: FC<IBracelet> = ({
   brand,
   price,
 }) => {
-  const deleteBracelet = () => {
-    console.log("Bracelet deleted " + name);
-
-    let strid: string = id ?? "";
-
-    BraceletService.deleteBracelet(strid);
-    window.location.reload();
-  };
-
-  const editBracelet = () => {
-    console.log("Clicked bracelet " + name);
-    let strid: string = id ?? "";
-    let bracelet: IBracelet = {
-      id: strid,
-      name: "test",
-      brand: "merke",
-    };
-
-    BraceletService.editBracelet(strid, bracelet);
-  };
-
   return (
     <>
       <Link to={`/bracelet-details/${id}`}>
