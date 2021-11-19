@@ -2,8 +2,14 @@ import { FC, useContext, useState, ChangeEvent } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import { BraceletService } from "../../services/BraceletService";
 import { Row, Col, Form } from "react-bootstrap";
+import { BraceletContext } from "../../contexts/BraceletContext";
+import { BraceletContextType } from "../../types/BraceletContextType";
 
 const CreateBraceletForm: FC = () => {
+  const { bracelets, addBracelet } = useContext(
+    BraceletContext
+  ) as BraceletContextType;
+
   const [newBracelet, setNewBracelet] = useState<IBracelet>({
     id: "",
     name: "",
@@ -71,7 +77,13 @@ const CreateBraceletForm: FC = () => {
     } else if (newBracelet.price === 0) {
       alert("Du må gi smykket en pris 💰");
     } else {
-      BraceletService.postNewBracelet(newBracelet, newImage as File);
+      try {
+        BraceletService.postNewBracelet(newBracelet, newImage as File);
+      } catch (error) {
+        console.log("failed at postNewBracelet: ", error);
+      } finally {
+        addBracelet(newBracelet);
+      }
     }
   };
 

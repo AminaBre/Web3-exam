@@ -17,6 +17,12 @@ export const BraceletProvider: FC = ({ children }) => {
     },
   ]);
 
+  const addBracelet = (newBracelet: IBracelet) =>
+    setBracelets((bracelets) => [...bracelets, newBracelet]);
+
+  const deleteExistingBracelet = (deletedBracelet: IBracelet) =>
+    setBracelets((bracelets) => [...bracelets, deletedBracelet]);
+
   useEffect(() => {
     getBracelets();
   }, []);
@@ -33,7 +39,14 @@ export const BraceletProvider: FC = ({ children }) => {
 
   return (
     <>
-      <BraceletContext.Provider value={{ bracelets, getBraceletById }}>
+      <BraceletContext.Provider
+        value={{
+          bracelets,
+          addBracelet,
+          deleteExistingBracelet,
+          getBraceletById,
+        }}
+      >
         {children}
       </BraceletContext.Provider>
     </>
