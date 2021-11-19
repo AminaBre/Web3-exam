@@ -142,7 +142,11 @@ const NecklaceDetails: FC = () => {
               />
             </Col>
             <Col xs={2}>
-              <FontAwesomeIcon icon={faPencilAlt} size="lg" className="my-4" />
+              <FontAwesomeIcon
+                icon={faPencilAlt}
+                size="lg"
+                className="my-4 edit-icon"
+              />
             </Col>
           </Row>
         </Col>

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using JewelleryApi.Models;
 using System.Collections.Generic;
 using JewelleryApi.Services;
+using System;
 
 namespace JewelleryApi.Controllers
 {
@@ -17,16 +18,56 @@ namespace JewelleryApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Necklace> GetNecklaces()//Her returnerer vi JSON
-        {
-            return _necklaceService.GetNecklaces();
+        public ActionResult<List<Necklace>> Get()//Her returnerer vi JSON
+        { 
+            return _necklaceService.Get();
         }
 
-        [HttpPost]
-        public Necklace PostNecklace(Necklace newNecklace) //Denne metoden tar i mot JSON
-        {
-            _necklaceService.PostNecklace(newNecklace);
-            return newNecklace;
+        [HttpGet("{id:length(24)}", Name="GetNecklace")]
+        public ActionResult<Necklace> Get(string id)//Her returnerer vi JSON
+        { 
+            var necklace = _necklaceService.Get(id);
+
+            if ( necklace == null ){
+                return NotFound(necklace);
+            }
+            return necklace;
         }
+
+        //CREATE
+        [HttpPost]
+        public ActionResult<Necklace> Post(Necklace necklace) //Denne metoden tar i mot JSON
+        {
+            _necklaceService.Create(necklace);
+            return CreatedAtRoute("GetNecklace", new { id = necklace.Id.ToString() }, necklace);
+        }
+
+        //UPDATE
+        [HttpPut("{id:length(24)}")]
+        public IActionResult Put(string id, Necklace editedNecklace)
+        {
+            var necklace = _necklaceService.Get(id);
+            
+            if(necklace == null){
+                Console.WriteLine("necklace is null");
+                return NotFound();
+            }
+            _necklaceService.Update(id, editedNecklace);
+           
+            
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id){
+            var necklace = _necklaceService.Get(id);
+
+            if(necklace == null){
+                return NotFound();
+            }
+            _necklaceService.Remove(necklace.Id);
+            return NoContent();
+        }
+
     }
 }

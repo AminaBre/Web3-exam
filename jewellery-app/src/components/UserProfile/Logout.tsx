@@ -1,4 +1,5 @@
 import { GoogleLogout } from "react-google-login";
+import { useHistory } from "react-router-dom";
 
 const clientId =
   "994843041026-bdtk85kiqdgj23emjstr68m36qlml5vk.apps.googleusercontent.com";
@@ -7,8 +8,10 @@ function Logout() {
   const onSuccess = () => {
     console.log("Logout made successfully");
     alert("Du er nå logget ut 🏃‍♀️");
-    window.location.reload();
+    history.push("/");
   };
+
+  const history = useHistory();
 
   return (
     <GoogleLogout

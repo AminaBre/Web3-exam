@@ -18,16 +18,35 @@ namespace JewelleryApi.Services
             _necklaces = database.GetCollection<Necklace>( settings.NecklaceCollectionName );
         }
 
-        public List<Necklace> GetNecklaces(){
+        public List<Necklace> Get(){
             return _necklaces.Find(necklace => true).ToList();
         }
 
-        public Necklace PostNecklace(Necklace newNecklace)
+
+        public Necklace Get(string id){
+            return _necklaces.Find<Necklace>(necklace => necklace.Id == id).FirstOrDefault();
+        }
+
+
+        public Necklace Create(Necklace necklace)
         {
             //Kan  bruke  try/catch her
-            _necklaces.InsertOne(newNecklace);
-            return newNecklace;
+            _necklaces.InsertOne(necklace);
+            return necklace;
         }
+
+        public void Update(string id, Necklace editedNecklace) =>
+            _necklaces.ReplaceOne(necklace => necklace.Id == id, editedNecklace);
+        
+
+        public void Remove(Necklace editedNecklace) =>
+        _necklaces.DeleteOne(necklace => necklace.Id == editedNecklace.Id);
+
+        public void Remove(string id) =>
+            _necklaces.DeleteOne(necklace => necklace.Id == id);
+        
+        
+        //
 
     }
 

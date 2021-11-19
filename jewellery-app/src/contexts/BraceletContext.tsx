@@ -23,7 +23,7 @@ export const BraceletProvider: FC = ({ children }) => {
 
   const getBracelets = async () => {
     const _bracelets = await BraceletService.getAll();
-    setBracelets([..._bracelets]);
+    setBracelets(_bracelets);
   };
 
   const getBraceletById = (id: string) => {

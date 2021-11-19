@@ -1,10 +1,11 @@
 using JewelleryApi.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace JewelleryApi.Models
 {
-    public class Ring : IJewellery 
+    public class Ring : IJewellery
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

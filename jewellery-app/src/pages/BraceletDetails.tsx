@@ -95,13 +95,12 @@ const BraceletDetails: FC = () => {
               <h2>Rediger</h2>
             </Col>
             <Col>
-              <Link to="/bracelets">
-                <FontAwesomeIcon
-                  icon={faTimes}
-                  onClick={deleteBracelet}
-                  size="lg"
-                />
-              </Link>
+              <FontAwesomeIcon
+                icon={faTimes}
+                onClick={deleteBracelet}
+                size="lg"
+                className="delete-icon"
+              />
             </Col>
           </Row>
           <Row>
@@ -144,7 +143,11 @@ const BraceletDetails: FC = () => {
               />
             </Col>
             <Col xs={2}>
-              <FontAwesomeIcon icon={faPencilAlt} size="lg" className="my-4" />
+              <FontAwesomeIcon
+                icon={faPencilAlt}
+                size="lg"
+                className="my-4 edit-icon"
+              />
             </Col>
           </Row>
         </Col>
