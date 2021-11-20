@@ -18,16 +18,35 @@ namespace JewelleryApi.Services
             _rings = database.GetCollection<Ring>( settings.RingCollectionName );
         }
 
-        public List<Ring> GetRings(){
+        public List<Ring> Get(){
             return _rings.Find(ring => true).ToList();
         }
 
-        public Ring PostRing(Ring newRing)
+
+        public Ring Get(string id){
+            return _rings.Find<Ring>(ring => ring.Id == id).FirstOrDefault();
+        }
+
+
+        public Ring Create(Ring ring)
         {
             //Kan  bruke  try/catch her
-            _rings.InsertOne(newRing);
-            return newRing;
+            _rings.InsertOne(ring);
+            return ring;
         }
+
+        public void Update(string id, Ring editedRing) =>
+            _rings.ReplaceOne(ring => ring.Id == id, editedRing);
+        
+
+        public void Remove(Ring editedRing) =>
+        _rings.DeleteOne(ring => ring.Id == editedRing.Id);
+
+        public void Remove(string id) =>
+            _rings.DeleteOne(ring => ring.Id == id);
+        
+        
+        //
 
     }
 

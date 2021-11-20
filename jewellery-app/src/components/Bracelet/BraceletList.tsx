@@ -1,7 +1,6 @@
 import { FC, useContext, useEffect, useState } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import BraceletItem from "./BraceletItem";
-import { BraceletService } from "../../services/BraceletService";
 import CreateBraceletForm from "./CreateBraceletForm";
 import { Row, Col } from "react-bootstrap";
 import "../Shared/cards.css";
@@ -44,7 +43,7 @@ const BraceletList: FC = () => {
       <Col>
         <Row>
           <Col>
-            <p>Antall armbånd: {bracelets?.length}</p>
+            <p>Totalt antall armbånd: {bracelets?.length}</p>
           </Col>
           <Col>
             <div className="input-group">

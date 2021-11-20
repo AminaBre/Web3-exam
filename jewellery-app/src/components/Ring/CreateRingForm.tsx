@@ -1,16 +1,14 @@
 import { FC, useContext, useState, ChangeEvent } from "react";
-import { INecklace } from "../../interfaces/INecklace";
-import { NecklaceService } from "../../services/NecklaceService";
+import { IRing } from "../../interfaces/IRing";
+import { RingService } from "../../services/RingService";
 import { Row, Col, Form } from "react-bootstrap";
-import { NecklaceContextType } from "../../types/NecklaceContextType";
-import { NecklaceContext } from "../../contexts/NecklaceContext";
+import { RingContext } from "../../contexts/RingContext";
+import { RingContextType } from "../../types/RingContextType";
 
-const CreateNecklaceForm: FC = () => {
-  const { necklaces, addNecklace } = useContext(
-    NecklaceContext
-  ) as NecklaceContextType;
+const CreateRingForm: FC = () => {
+  const { rings, addRing } = useContext(RingContext) as RingContextType;
 
-  const [newNecklace, setNewNecklace] = useState<INecklace>({
+  const [newRing, setNewRing] = useState<IRing>({
     id: "",
     name: "",
     material: "",
@@ -25,22 +23,22 @@ const CreateNecklaceForm: FC = () => {
     switch (name) {
       case "name":
         var { value } = event.target;
-        setNewNecklace({
-          ...newNecklace,
+        setNewRing({
+          ...newRing,
           name: value,
         });
         break;
       case "brand":
         var { value } = event.target;
-        setNewNecklace({
-          ...newNecklace,
+        setNewRing({
+          ...newRing,
           brand: value,
         });
         break;
       case "material":
         var { value } = event.target;
-        setNewNecklace({
-          ...newNecklace,
+        setNewRing({
+          ...newRing,
           material: value,
         });
         break;
@@ -49,8 +47,8 @@ const CreateNecklaceForm: FC = () => {
         if (value.length === 0) {
           console.log("Fyll ut pris");
         } else {
-          setNewNecklace({
-            ...newNecklace,
+          setNewRing({
+            ...newRing,
             price: parseInt(value),
           });
         }
@@ -58,34 +56,34 @@ const CreateNecklaceForm: FC = () => {
       case "image":
         let { files } = event.target;
         if (files) {
-          setNewNecklace({ ...newNecklace, image: files[0].name });
+          setNewRing({ ...newRing, image: files[0].name });
           setNewImage(files[0]);
         }
         break;
     }
   };
 
-  const postNewNecklace = () => {
-    if (newNecklace.name?.length === 0) {
+  const postNewRing = () => {
+    if (newRing.name?.length === 0) {
       alert("Du må gi smykket et navn ✨");
-    } else if (newNecklace.brand?.length === 0) {
+    } else if (newRing.brand?.length === 0) {
       alert("Du må gi smykket et merke 🌟");
-    } else if (newNecklace.material?.length === 0) {
+    } else if (newRing.material?.length === 0) {
       alert("Du må gi smykket et materiale 👑");
-    } else if (newNecklace.image?.length === 0) {
+    } else if (newRing.image?.length === 0) {
       alert("Du må gi smykket et bilde 💎");
-    } else if (newNecklace.price === 0) {
+    } else if (newRing.price === 0) {
       alert("Du må gi smykket en pris 💰");
     } else {
-      NecklaceService.postNewNecklace(newNecklace, newImage as File);
-      addNecklace(newNecklace);
+      RingService.postNewRing(newRing, newImage as File);
+      addRing(newRing);
     }
   };
 
   return (
     <Col className="create font-link mx-3 p-4">
       <Row>
-        <h4>Design ditt eget kjede</h4>
+        <h4>Design ditt eget armbånd</h4>
       </Row>
       <Row>
         <Col sm={6}>
@@ -125,7 +123,7 @@ const CreateNecklaceForm: FC = () => {
             type="button"
             className="btn btn-outline-light my-3 w-100"
             value="Lagre design"
-            onClick={postNewNecklace}
+            onClick={postNewRing}
           />
         </Col>
       </Row>
@@ -133,4 +131,4 @@ const CreateNecklaceForm: FC = () => {
   );
 };
 
-export default CreateNecklaceForm;
+export default CreateRingForm;

@@ -17,15 +17,15 @@ export const BraceletProvider: FC = ({ children }) => {
     },
   ]);
 
+  useEffect(() => {
+    getBracelets();
+  }, []);
+
   const addBracelet = (newBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, newBracelet]);
 
   const deleteExistingBracelet = (deletedBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, deletedBracelet]);
-
-  useEffect(() => {
-    getBracelets();
-  }, []);
 
   const getBracelets = async () => {
     const _bracelets = await BraceletService.getAll();
@@ -34,7 +34,6 @@ export const BraceletProvider: FC = ({ children }) => {
 
   const getBraceletById = (id: string) => {
     return bracelets.find((bracelet) => bracelet.id === id) as IBracelet;
-    //if-else om vi  finner objekter
   };
 
   return (

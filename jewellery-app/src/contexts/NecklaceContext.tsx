@@ -21,6 +21,9 @@ export const NecklaceProvider: FC = ({ children }) => {
     getNecklaces();
   }, []);
 
+  const addNecklace = (newNecklace: INecklace) =>
+    setNecklaces((necklaces) => [...necklaces, newNecklace]);
+
   const getNecklaces = async () => {
     const _necklaces = await NecklaceService.getAll();
     setNecklaces(_necklaces);
@@ -33,7 +36,9 @@ export const NecklaceProvider: FC = ({ children }) => {
 
   return (
     <>
-      <NecklaceContext.Provider value={{ necklaces, getNecklaceById }}>
+      <NecklaceContext.Provider
+        value={{ necklaces, getNecklaceById, addNecklace }}
+      >
         {children}
       </NecklaceContext.Provider>
     </>

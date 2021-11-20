@@ -5,19 +5,12 @@ import { NecklaceService } from "../../services/NecklaceService";
 import CreateNecklaceForm from "./CreateNecklaceForm";
 import { Row, Col } from "react-bootstrap";
 import "../Shared/cards.css";
+import { NecklaceContext } from "../../contexts/NecklaceContext";
+import { NecklaceContextType } from "../../types/NecklaceContextType";
 
 const NecklaceList: FC = () => {
-  const [necklaces, setNecklaces] = useState<INecklace[]>();
+  const { necklaces } = useContext(NecklaceContext) as NecklaceContextType;
   const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    getAllNecklaces();
-  }, []);
-
-  const getAllNecklaces = async () => {
-    const result = await NecklaceService.getAll();
-    setNecklaces(result);
-  };
 
   const createStateNecklaceList = () => {
     return necklaces
@@ -31,7 +24,6 @@ const NecklaceList: FC = () => {
         }
       })
       .map((necklace: INecklace, key: number) => {
-        //For hvert armbånd vi finner...
         return (
           <Col sm={12} md={6} lg={6} xl={6} key={key} className="product-card">
             <NecklaceItem
@@ -52,7 +44,7 @@ const NecklaceList: FC = () => {
       <Col>
         <Row>
           <Col>
-            <p>Antall armbånd: {necklaces?.length}</p>
+            <p>Totalt antall kjeder: {necklaces?.length}</p>
           </Col>
           <Col>
             <div className="input-group">

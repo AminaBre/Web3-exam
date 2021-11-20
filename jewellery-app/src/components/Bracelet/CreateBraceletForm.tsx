@@ -77,13 +77,8 @@ const CreateBraceletForm: FC = () => {
     } else if (newBracelet.price === 0) {
       alert("Du må gi smykket en pris 💰");
     } else {
-      try {
-        BraceletService.postNewBracelet(newBracelet, newImage as File);
-      } catch (error) {
-        console.log("failed at postNewBracelet: ", error);
-      } finally {
-        addBracelet(newBracelet);
-      }
+      BraceletService.postNewBracelet(newBracelet, newImage as File);
+      addBracelet(newBracelet);
     }
   };
 

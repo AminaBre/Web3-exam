@@ -6,6 +6,7 @@ import Error from "./Error";
 import Profile from "./Profile";
 import BraceletDetails from "./BraceletDetails";
 import NecklaceDetails from "./NecklaceDetails";
+import RingDetails from "./RingDetails";
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   Profile,
   BraceletDetails,
   NecklaceDetails,
+  RingDetails,
 };

@@ -21,6 +21,8 @@ export const RingProvider: FC = ({ children }) => {
     getRings();
   }, []);
 
+  const addRing = (newRing: IRing) => setRings((rings) => [...rings, newRing]);
+
   const getRings = async () => {
     const _rings = await RingService.getAll();
     setRings(_rings);
@@ -28,12 +30,17 @@ export const RingProvider: FC = ({ children }) => {
 
   const getRingById = (id: string) => {
     return rings.find((ring) => ring.id === id) as IRing;
-    //if-else om vi  finner objekter
   };
 
   return (
     <>
-      <RingContext.Provider value={{ rings, getRingById }}>
+      <RingContext.Provider
+        value={{
+          rings,
+          addRing,
+          getRingById,
+        }}
+      >
         {children}
       </RingContext.Provider>
     </>
