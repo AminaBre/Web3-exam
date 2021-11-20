@@ -1,7 +1,6 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { INecklace } from "../../interfaces/INecklace";
 import NecklaceItem from "./NecklaceItem";
-import { NecklaceService } from "../../services/NecklaceService";
 import CreateNecklaceForm from "./CreateNecklaceForm";
 import { Row, Col } from "react-bootstrap";
 import "../Shared/cards.css";

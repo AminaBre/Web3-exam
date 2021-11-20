@@ -41,7 +41,7 @@ export const BraceletService = (function () {
 
   //DELETE
 
-  const deleteBracelet = (id: string) => {
+  const deleteSelectedBracelet = (id: string) => {
     axios.delete(urlToBraceletController + "/" + id);
     console.log("deleted: " + id);
   };
@@ -49,7 +49,7 @@ export const BraceletService = (function () {
   return {
     getAll,
     postNewBracelet,
-    deleteBracelet,
+    deleteSelectedBracelet,
     getSingle,
     editBracelet,
   };

@@ -26,7 +26,8 @@ h1 {
   color: white;
 }
 
-.delete-icon {
+.delete-icon,
+.edit-icon {
   float: right;
 }
 

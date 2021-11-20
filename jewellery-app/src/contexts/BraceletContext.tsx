@@ -24,7 +24,7 @@ export const BraceletProvider: FC = ({ children }) => {
   const addBracelet = (newBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, newBracelet]);
 
-  const deleteExistingBracelet = (deletedBracelet: IBracelet) =>
+  const deleteBracelet = (deletedBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, deletedBracelet]);
 
   const getBracelets = async () => {
@@ -42,7 +42,7 @@ export const BraceletProvider: FC = ({ children }) => {
         value={{
           bracelets,
           addBracelet,
-          deleteExistingBracelet,
+          deleteBracelet,
           getBraceletById,
         }}
       >

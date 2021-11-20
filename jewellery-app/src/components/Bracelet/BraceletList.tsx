@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import BraceletItem from "./BraceletItem";
 import CreateBraceletForm from "./CreateBraceletForm";
