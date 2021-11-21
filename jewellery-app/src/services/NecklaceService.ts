@@ -41,7 +41,7 @@ export const NecklaceService = (function () {
 
   //DELETE
 
-  const deleteNecklace = (id: string) => {
+  const deleteSelectedNecklace = (id: string) => {
     axios.delete(urlToNecklaceController + "/" + id);
     console.log("deleted: " + id);
   };
@@ -49,7 +49,7 @@ export const NecklaceService = (function () {
   return {
     getAll,
     postNewNecklace,
-    deleteNecklace,
+    deleteSelectedNecklace,
     getSingle,
     editNecklace,
   };

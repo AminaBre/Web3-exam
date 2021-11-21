@@ -52,3 +52,7 @@ a:hover {
 .errorWoman {
   border-radius: 50px;
 }
+
+.basic-nav-dropdown NavDropdown.Item {
+  color: #000 !important;
+}

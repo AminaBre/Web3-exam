@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react";
+import { FC, useContext, useEffect, useRef, useState } from "react";
 import { IBracelet } from "../../interfaces/IBracelet";
 import BraceletItem from "./BraceletItem";
 import CreateBraceletForm from "./CreateBraceletForm";
@@ -6,10 +6,21 @@ import { Row, Col } from "react-bootstrap";
 import "../Shared/cards.css";
 import { BraceletContext } from "../../contexts/BraceletContext";
 import { BraceletContextType } from "../../types/BraceletContextType";
+import { BraceletService } from "../../services/BraceletService";
 
 const BraceletList: FC = () => {
   const { bracelets } = useContext(BraceletContext) as BraceletContextType;
   const [searchTerm, setSearchTerm] = useState("");
+  const [oldBracelets, setBracelets] = useState<IBracelet[]>();
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function getBracelets() {
+      const bracelet = await BraceletService.getAll();
+      setBracelets(bracelet);
+    }
+    getBracelets();
+  }, []);
 
   const createStateBraceletList = () => {
     return bracelets

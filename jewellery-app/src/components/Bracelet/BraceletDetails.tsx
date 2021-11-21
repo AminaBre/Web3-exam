@@ -16,7 +16,7 @@ import "../../components/Shared/cards.css";
 
 const BraceletDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { bracelets, deleteBracelet } = useContext(
+  const { deleteBracelet, getBraceletById } = useContext(
     BraceletContext
   ) as BraceletContextType;
 
@@ -30,6 +30,12 @@ const BraceletDetails: FC = () => {
     image: "",
     price: 0,
   });
+
+  useEffect(() => {
+    const _bracelet = getBraceletById(id);
+    console.log("getting bracelet with id: ", id);
+    newBracelet(_bracelet);
+  }, []);
 
   const deleteSelectedBracelet = () => {
     console.log("Bracelet deleted " + bracelet?.name);
@@ -79,17 +85,6 @@ const BraceletDetails: FC = () => {
   const editBracelet = () => {
     BraceletService.editBracelet(id, bracelet);
   };
-
-  const { getBraceletById } = useContext(
-    BraceletContext
-  ) as BraceletContextType;
-
-  useEffect(() => {
-    if (id) {
-      const _bracelet = getBraceletById(id);
-      newBracelet(_bracelet);
-    }
-  }, []);
 
   return (
     <>

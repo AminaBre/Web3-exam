@@ -43,7 +43,7 @@ const RingList: FC = () => {
       <Col>
         <Row>
           <Col>
-            <p>Totalt antall armbånd: {rings?.length}</p>
+            <p>Totalt antall ringer: {rings?.length}</p>
           </Col>
           <Col>
             <div className="input-group">

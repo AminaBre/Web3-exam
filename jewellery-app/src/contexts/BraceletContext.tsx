@@ -21,11 +21,21 @@ export const BraceletProvider: FC = ({ children }) => {
     getBracelets();
   }, []);
 
+  //BUG: Etter man har laget et smykke blir staten oppdatert på riktig måte-
+  //men man kan ikke gå direkte til Details til det nylagede smykket uten en refresh av siden.
   const addBracelet = (newBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, newBracelet]);
 
-  const deleteBracelet = (deletedBracelet: IBracelet) =>
-    setBracelets((bracelets) => [...bracelets, deletedBracelet]);
+  const deleteBracelet = (deletedBracelet: IBracelet) => {
+    bracelets.forEach((bracelet, index) => {
+      if (bracelet.id === deletedBracelet.id) {
+        bracelets.splice(index, 1);
+      } else {
+        return;
+      }
+      setBracelets(bracelets);
+    });
+  };
 
   const getBracelets = async () => {
     const _bracelets = await BraceletService.getAll();

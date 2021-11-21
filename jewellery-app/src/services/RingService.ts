@@ -41,7 +41,7 @@ export const RingService = (function () {
 
   //DELETE
 
-  const deleteRing = (id: string) => {
+  const deleteSelectedRing = (id: string) => {
     axios.delete(urlToRingController + "/" + id);
     console.log("deleted: " + id);
   };
@@ -49,7 +49,7 @@ export const RingService = (function () {
   return {
     getAll,
     postNewRing,
-    deleteRing,
+    deleteSelectedRing,
     getSingle,
     editRing,
   };
