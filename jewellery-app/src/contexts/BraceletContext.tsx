@@ -19,7 +19,7 @@ export const BraceletProvider: FC = ({ children }) => {
 
   useEffect(() => {
     getBracelets();
-  }, []);
+  }, [bracelets]);
 
   //BUG: Etter man har laget et smykke blir staten oppdatert på riktig måte-
   //men man kan ikke gå direkte til Details til det nylagede smykket uten en refresh av siden.
