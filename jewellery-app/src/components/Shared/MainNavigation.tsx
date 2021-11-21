@@ -6,6 +6,8 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
 const MainNavigation: FC = () => {
+  const hamburgerMenu = <i className="fas fa-bars"></i>;
+
   return (
     <Navbar className="navigation sticky-top navbar-light pt-3">
       <Container className="navigation-container">
@@ -31,22 +33,23 @@ const MainNavigation: FC = () => {
             <FontAwesomeIcon icon={faUser} className="fa-lg" />
           </Nav.Link>
           <NavDropdown
-            title="Dropdown"
+            title="Meny"
             id="basic-nav-dropdown"
             className="d-block d-sm-none"
           >
-            <img
-              src="/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-            <NavDropdown.Item href="/bracelets">Armbånd</NavDropdown.Item>
-            <NavDropdown.Item href="/necklaces">Kjeder</NavDropdown.Item>
-            <NavDropdown.Item href="/rings">Ringer</NavDropdown.Item>
+            <NavDropdown.Item href="/bracelets" id="hamburger-link">
+              Armbånd
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/necklaces" id="hamburger-link">
+              Kjeder
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/rings" id="hamburger-link">
+              Ringer
+            </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="/profile">Min bruker</NavDropdown.Item>
+            <NavDropdown.Item href="/profile" id="hamburger-link">
+              Profil
+            </NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Container>
