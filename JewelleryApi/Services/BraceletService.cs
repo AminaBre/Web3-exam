@@ -30,7 +30,6 @@ namespace JewelleryApi.Services
 
         public Bracelet Create(Bracelet bracelet)
         {
-            //Kan  bruke  try/catch her
             _bracelets.InsertOne(bracelet);
             return bracelet;
         }
@@ -46,7 +45,7 @@ namespace JewelleryApi.Services
             _bracelets.DeleteOne(bracelet => bracelet.Id == id);
         
         
-        //
+        
 
     }
 

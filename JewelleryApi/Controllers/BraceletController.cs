@@ -18,13 +18,13 @@ namespace JewelleryApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Bracelet>> Get()//Her returnerer vi JSON
+        public ActionResult<List<Bracelet>> Get()
         { 
             return _braceletService.Get();
         }
 
         [HttpGet("{id:length(24)}", Name="GetBracelet")]
-        public ActionResult<Bracelet> Get(string id)//Her returnerer vi JSON
+        public ActionResult<Bracelet> Get(string id)
         { 
             var bracelet = _braceletService.Get(id);
 
@@ -36,7 +36,7 @@ namespace JewelleryApi.Controllers
 
         //CREATE
         [HttpPost]
-        public ActionResult<Bracelet> Post(Bracelet bracelet) //Denne metoden tar i mot JSON
+        public ActionResult<Bracelet> Post(Bracelet bracelet) 
         {
             _braceletService.Create(bracelet);
             return CreatedAtRoute("GetBracelet", new { id = bracelet.Id.ToString() }, bracelet);

@@ -30,7 +30,6 @@ namespace JewelleryApi.Services
 
         public Ring Create(Ring ring)
         {
-            //Kan  bruke  try/catch her
             _rings.InsertOne(ring);
             return ring;
         }
@@ -46,7 +45,7 @@ namespace JewelleryApi.Services
             _rings.DeleteOne(ring => ring.Id == id);
         
         
-        //
+        
 
     }
 

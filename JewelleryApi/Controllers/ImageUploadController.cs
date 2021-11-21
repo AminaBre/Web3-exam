@@ -14,7 +14,6 @@ namespace JewelleryApi.Controllers {
         }
 
         [HttpPost]
-        //mapper navnet til en metode
         [Route("[action]")]
     public ActionResult SaveImage(IFormFile file)
     {

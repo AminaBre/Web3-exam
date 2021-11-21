@@ -50,7 +50,7 @@ const RingList: FC = () => {
               <input
                 type="text"
                 className="form-control shadow-none"
-                placeholder="Søk etter armbånd..."
+                placeholder="Søk etter ringer..."
                 onChange={(event) => {
                   setSearchTerm(event.target.value);
                 }}

@@ -76,6 +76,8 @@ const CreateBraceletForm: FC = () => {
       alert("Du må gi smykket et bilde 💎");
     } else if (newBracelet.price === 0) {
       alert("Du må gi smykket en pris 💰");
+    } else if (isNaN(newBracelet.price)) {
+      alert("Du må skrive pris med tall");
     } else {
       BraceletService.postNewBracelet(newBracelet, newImage as File);
       addBracelet(newBracelet);

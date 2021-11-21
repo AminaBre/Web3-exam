@@ -30,7 +30,6 @@ namespace JewelleryApi.Services
 
         public Necklace Create(Necklace necklace)
         {
-            //Kan  bruke  try/catch her
             _necklaces.InsertOne(necklace);
             return necklace;
         }
@@ -46,7 +45,7 @@ namespace JewelleryApi.Services
             _necklaces.DeleteOne(necklace => necklace.Id == id);
         
         
-        //
+        
 
     }
 

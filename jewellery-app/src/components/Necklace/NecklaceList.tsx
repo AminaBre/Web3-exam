@@ -50,7 +50,7 @@ const NecklaceList: FC = () => {
               <input
                 type="text"
                 className="form-control shadow-none"
-                placeholder="Søk etter armbånd..."
+                placeholder="Søk etter kjede..."
                 onChange={(event) => {
                   setSearchTerm(event.target.value);
                 }}
