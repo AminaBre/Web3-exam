@@ -84,6 +84,7 @@ const RingDetails: FC = () => {
 
   const editRing = () => {
     RingService.editRing(id, ring);
+    alert("Dine endringer er lagret! 🌟");
   };
 
   return (

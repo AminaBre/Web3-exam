@@ -84,6 +84,7 @@ const BraceletDetails: FC = () => {
 
   const editBracelet = () => {
     BraceletService.editBracelet(id, bracelet);
+    alert("Dine endringer er lagret! 🌟");
   };
 
   return (

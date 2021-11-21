@@ -19,7 +19,7 @@ export const NecklaceProvider: FC = ({ children }) => {
 
   useEffect(() => {
     getNecklaces();
-  }, []);
+  }, [necklaces]);
 
   const addNecklace = (newNecklace: INecklace) =>
     setNecklaces((necklaces) => [...necklaces, newNecklace]);
@@ -42,7 +42,6 @@ export const NecklaceProvider: FC = ({ children }) => {
 
   const getNecklaceById = (id: string) => {
     return necklaces.find((necklace) => necklace.id === id) as INecklace;
-    //if-else om vi  finner objekter
   };
 
   return (

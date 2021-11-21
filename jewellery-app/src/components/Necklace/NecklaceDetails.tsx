@@ -84,6 +84,7 @@ const NecklaceDetails: FC = () => {
 
   const editNecklace = () => {
     NecklaceService.editNecklace(id, necklace);
+    alert("Dine endringer er lagret! 🌟");
   };
 
   return (

@@ -21,8 +21,6 @@ export const BraceletProvider: FC = ({ children }) => {
     getBracelets();
   }, [bracelets]);
 
-  //BUG: Etter man har laget et smykke blir staten oppdatert på riktig måte-
-  //men man kan ikke gå direkte til Details til det nylagede smykket uten en refresh av siden.
   const addBracelet = (newBracelet: IBracelet) =>
     setBracelets((bracelets) => [...bracelets, newBracelet]);
 

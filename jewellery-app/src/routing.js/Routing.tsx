@@ -15,7 +15,7 @@ import MainNavigation from "../components/Shared/MainNavigation";
 import Footer from "../components/Shared/Footer";
 import { Container } from "react-bootstrap";
 
-//Hadde allerede startet på eksamen  før  endringene om switch, element osv ble tatt i bruk.
+//Hadde allerede startet på eksamen  før  endringene om switch ble tatt i bruk.
 const Routing: FC = () => {
   return (
     <BrowserRouter>

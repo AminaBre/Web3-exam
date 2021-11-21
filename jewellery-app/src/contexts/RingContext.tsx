@@ -19,7 +19,7 @@ export const RingProvider: FC = ({ children }) => {
 
   useEffect(() => {
     getRings();
-  }, []);
+  }, [rings]);
 
   const addRing = (newRing: IRing) => setRings((rings) => [...rings, newRing]);
 
@@ -41,7 +41,6 @@ export const RingProvider: FC = ({ children }) => {
 
   const getRingById = (id: string) => {
     return rings.find((ring) => ring.id === id) as IRing;
-    //if-else om vi  finner objekter
   };
 
   return (
