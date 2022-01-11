@@ -1,7 +1,7 @@
-#Exam - Fullstack Webpage using React and MongoDB
-##Grade A - Exam in Webdevelopment
+# Fullstack Webpage using React and MongoDB
+## Grade A - Exam in Webdevelopment
 
-######To run the project, please follow these steps:
+###### To run the project, please follow these steps:
 
 Enter the jewellery-app-folder, and run:
 npm install
